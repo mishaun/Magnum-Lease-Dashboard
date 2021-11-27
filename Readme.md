@@ -70,7 +70,7 @@ See here: http://magnumproducing.com/assets.html
 #### Code Snippets
 
 Webscraping State Table and Joining to Counties Shapefile
-```
+```python
 stlink = 'https://www.nrcs.usda.gov/wps/portal/nrcs/detail/?cid=nrcs143_013696'
 stTable = pd.read_html(req.get(stlink).content)[0]
 
@@ -83,7 +83,7 @@ usCounties = pd.merge(usCounties, stTable.iloc[:,1:], how="left", left_on = "STA
 ```
 
 Function for Fuzzy Matching
-```
+```python
 def fuzzyMatchCustom(query, choices, User_score_cutoff = 0):
     '''
     This function will fuzzy matching to find matches for lease serial numbers in our master spreadsheet to BLM lR2000 
@@ -99,7 +99,7 @@ def fuzzyMatchCustom(query, choices, User_score_cutoff = 0):
         return match[0]
 ```
 Applying Function to Internal Lease Record Spreadsheet
-```
+```python
 leases["Fuzzy Matched County"] = leases["County for Matching"].apply(lambda x: fuzzyMatchCustom(str(x), usCounties[usCounties['Postal Code'].isin(leases['ST'].unique())]['County Fuzzy Choices'], User_score_cutoff = 88))
 
 ```
@@ -124,7 +124,7 @@ leases["Fuzzy Matched County"] = leases["County for Matching"].apply(lambda x: f
 #### Code Snippets
 
 1.  Reading in Data for Public Use from Database
-```
+```python
 #pull in details table with official county names
 sql = '''
 SELECT d.*, o.official_county, o.fips FROM details d
@@ -137,7 +137,7 @@ leases = pd.read_sql(sql, db)
 
 2.  Reading in Data for Internal Use from Database
 
-```
+```python
 investmentSql = '''
 Select d.*, c.OFFICIAL_COUNTY, c.FIPS, i.YEARS_RENEWED, i.RENTALS_PAID, i.TOTAL_INVESTMENT, i.Estimated_Bonus from details d
 join official_counties c
