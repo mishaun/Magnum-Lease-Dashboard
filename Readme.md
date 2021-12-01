@@ -13,7 +13,7 @@ See here: http://magnumproducing.com/assets.html
 <br>
 
 # Libraries 
-* Code: Python 3.7
+* Code: Python 3.6.10
 * Packages:  Geopandas, Pandas, FuzzyWuzzy, Requests
 
 <br>
