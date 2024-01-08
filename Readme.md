@@ -3,7 +3,7 @@
 
 2. Build Tableau Dashboard displaying key lease information for company CEO and public use such as acres by county, acres by expiration, etc.
 
-3.  Host on company website built by me using Bootstrap's CSS library<br>
+3.  Host on company website built independently using Bootstrap's CSS library<br>
 See here: http://magnumproducing.com/assets.html
 
 ![website_screenshot](Images/websitescreenshot.png)
